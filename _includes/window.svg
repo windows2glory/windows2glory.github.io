@@ -1,0 +1,28 @@
+<svg class="window {{ include.class }}" viewBox="0 0 120 170" aria-hidden="true" focusable="false">
+  <defs>
+    <clipPath id="arch-{{ include.id }}"><path d="M10 170 V72 Q10 22 60 6 Q110 22 110 72 V170 Z"/></clipPath>
+    <radialGradient id="glow-{{ include.id }}" cx="50%" cy="30%" r="75%">
+      <stop offset="0" stop-color="#fff4d6" stop-opacity=".85"/>
+      <stop offset=".55" stop-color="#fff4d6" stop-opacity=".15"/>
+      <stop offset="1" stop-color="#fff4d6" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <g clip-path="url(#arch-{{ include.id }})">
+    <rect x="0" y="0" width="60" height="105" fill="#a8364b"/>
+    <rect x="60" y="0" width="60" height="105" fill="#2f4a8a"/>
+    <rect x="0" y="105" width="60" height="65" fill="#c8962e"/>
+    <rect x="60" y="105" width="60" height="65" fill="#2d7f78"/>
+    <polygon points="30,70 48,88 30,106 12,88" fill="#e8c46a"/>
+    <polygon points="90,70 108,88 90,106 72,88" fill="#e8c46a"/>
+    <polygon points="30,120 45,137 30,154 15,137" fill="#2f4a8a"/>
+    <polygon points="90,120 105,137 90,154 75,137" fill="#a8364b"/>
+    <circle cx="60" cy="50" r="17" fill="#e8c46a"/>
+    <circle cx="60" cy="50" r="7" fill="#a8364b"/>
+    <rect width="120" height="170" fill="url(#glow-{{ include.id }})"/>
+  </g>
+  <g class="lead" fill="none" stroke-width="3" stroke-linejoin="round">
+    <path d="M60 6 V33 M60 67 V170 M10 105 H110 M43 50 H10 M77 50 H110"/>
+    <circle cx="60" cy="50" r="17"/>
+    <path d="M10 170 V72 Q10 22 60 6 Q110 22 110 72 V170 Z" stroke-width="5"/>
+  </g>
+</svg>

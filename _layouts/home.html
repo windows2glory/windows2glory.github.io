@@ -1,0 +1,41 @@
+---
+layout: default
+---
+<section class="hero">
+  <div class="wrap hero-inner">
+    {% include window.svg id="hero" class="hero-window" %}
+    <div class="hero-text">
+      {% if page.tagline %}<p class="eyebrow">{{ page.tagline }}</p>{% endif %}
+      <h1>{{ site.title }}</h1>
+      <div class="lede">{{ content }}</div>
+    </div>
+  </div>
+</section>
+
+<section id="posts" class="posts">
+  <div class="wrap">
+    <h2 class="section-title"><span>Latest writing</span></h2>
+    {% if site.posts.size > 0 %}
+    <ol class="post-list">
+      {% for post in site.posts %}
+      {% assign words = post.content | number_of_words %}
+      {% assign auto_excerpt = post.content | strip_html | truncatewords: 36 %}
+      <li class="post-card">
+        <a href="{{ post.url | relative_url }}">
+          <p class="meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+            <span aria-hidden="true">&middot;</span>
+            {{ words | divided_by: 200 | plus: 1 }} min read
+          </p>
+          <h3>{{ post.title }}</h3>
+          <p class="excerpt">{{ post.description | default: auto_excerpt }}</p>
+          <span class="more">Read <span aria-hidden="true">&rarr;</span></span>
+        </a>
+      </li>
+      {% endfor %}
+    </ol>
+    {% else %}
+    <p class="empty">No posts yet.</p>
+    {% endif %}
+  </div>
+</section>
